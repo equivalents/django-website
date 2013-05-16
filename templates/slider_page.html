@@ -1,0 +1,66 @@
+{% block external %}
+  
+{% endblock %}
+  
+{% block content %} 
+
+  {% include 'slider_bars.js' %}
+ <div id="control_page">
+  <div id="control_options"><p>Toggle Control Options</p>
+    <div id="slider_group"><p> LED Manual Controls</p>
+	
+	  <div id="slider_B">
+        <p>
+          <label for="blue_power">Blue Intensity:</label>
+          <input type="text" id="blue_power" style="border:0; color:#f6931f; font-weight:bold;" />
+        </p> 
+	  
+      </div>
+	
+	  <br></br>
+    
+	  <div id="slider_R">
+        <p>
+          <label for="red_power">Red Intensity:</label>
+          <input type="text" id="red_power" style="border:0; color:#f6931f; font-weight:bold;" />
+        </p> 
+	  
+      </div>
+	
+	  <br></br>
+
+      <div id="slider_G">
+        <p>
+         <label for="green_power">Green Intensity:</label>
+          <input type="text" id="green_power" style="border:0; color:#f6931f; font-weight:bold;" />
+        </p> 
+      </div>
+	  <br></br>
+    </div>
+  </div>
+  
+  
+  
+  <div id="phase_slider"><p>LED Fade Speed Control</p>
+    <div id="slider_P">
+      <p>
+        <label for="phase_speed">Phase Speed:</label>
+        <input type="text" id="phase_speed" style="border:0; color:#f6931f; font-weight:bold;" />
+      </p> 
+    </div>
+	<br></br>
+  </div>
+  
+  <div id="preprogams"><p>LED Pre-Programmed Controls</p>
+    <label for="submit">Police Light:</label>
+    <input type="submit" name="police" id="police" value="{{ preprogram1.preprogramStatus }}"   />
+	<br></br>
+    <label for="submit">Danger Light:</label>
+    <input type="submit" name="danger" id="danger" value="{{ preprogram2.preprogramStatus }}"   />
+	<br></br>
+    <label for="submit">Kill Switch:</label>
+    <input type="submit" name="kill" id="kill" value="{{ preprogram3.preprogramStatus }}"   />
+  </div>
+ </div> 
+  
+{% endblock %}

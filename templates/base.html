@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Django Website | {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="/media/style.css" type="text/css" />
+	<link rel="stylesheet" href="/media/jquery_ui_css.css">
+	<script type="text/javascript" src="/media/jquery.js"></script>
+	<script type="text/javascript" src="/media/jquery_ui.js"></script>
+		
+	{% block external %}{% endblock %}
+  </head>
+  <body class="twoColElsLtHdr">
+
+    <div id="container">
+	
+    <div id="header"><img src="/media/firespray_avatar.jpg" alt="founder" border="0"/>
+    <center><h1><br>Welcome to Daniel's Website</h1></center>
+    <!-- end #header --></div>
+	
+	<div id="sidebar1">
+	<center><input type="button" class="buttons" value="Home" onclick="window.location='http://www.n2it2.com/index.php'"/><center>
+	<center><img src="/media/baby.jpg" alt="founder" border="0" id="baby" /></center>
+	<!-- end #sidebar1 --></div>
+  
+    <div id="mainContent">
+	<a href="/">home</a> |
+	{% if user.is_authenticated %}
+	
+      Welcome {{ user.username }}! |
+      <a href="/logout">logout</a> |
+	  <a href="/control/">control</a>
+	 
+    {% else %}
+	 
+	  <a href="/login/">login</a> 
+	  
+	{% endif %}
+	  {% block head %}{% endblock %}
+      {% block content %}{% endblock %}
+    
+	<!-- end #mainContent --></div> 
+	 
+	<div id="footer">
+    <p>Page Authored by: Daniel Powell 2012</p>
+    <!-- end #footer --></div>
+  
+    <!-- end #container --></div>
+  </body>
+</html>

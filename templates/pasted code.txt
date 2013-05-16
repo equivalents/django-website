@@ -1,0 +1,3 @@
+var power = $("#power").val()
+	var data = { power:power };
+	var args = { type:"POST", url:"/slider/", data:data }

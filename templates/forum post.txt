@@ -1,0 +1,31 @@
+I am trying to create my first Django AJAX App. I have a template that creates a JQuery slider bar. I also have a datamodel which has a sliderbarValue entry and a View that writes to it.
+ I need to know how to make the Javascript call the View and pass it the slider bar value. Here is the template and javascript I have...
+ 
+ {% block external %}
+  
+{% endblock %}
+  
+{% block content %} 
+  <br></br>
+  <p>
+    <label for="power">Intensity:</label>
+    <input type="text" id="power" style="border:0; color:#f6931f; font-weight:bold;" />
+  </p> 
+  <div id="slider_1"></div>
+  <br></br>
+  <script type='text/javascript'>
+  $(function (){
+    $( "#slider_1" ).slider({
+      range: "min",
+      value: {{ slider1.sliderValue }},
+      min: 0,
+      max: 100,
+      slide: function( event, ui ) {
+        $( "#power" ).val(ui.value );
+      }
+    });
+    $( "#power" ).val($( "#slider_1" ).slider( "value" ) );
+	return false;
+  });
+  </script>
+{% endblock %}

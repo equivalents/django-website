@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block external %}
+  <script type="text/javascript" src="/media/jquery.js"></script>
+  <script type="text/javascript" src="/media/jquery_ui.js"></script> 
+  <script type="text/javascript" src="/media/control.js"></script>
+  <script type="text/javascript" src="/media/gpio.js"></script>
+{% endblock %}
+{% block title %}Control Panel{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+
+  <br></br>
+  <p>
+    <label for="power">Intensity:</label>
+    <input type="text" id="power" style="border:0; color:#f6931f; font-weight:bold;" />
+  </p> 
+  <div id="slider_1"></div>
+  <br></br>
+  <div id="gpio_results">
+  {% if pin_list %}
+    <ul>
+	{% for pin in pin_list %}
+	<form id="gpio_form" method="post" action="." >
+      {% csrf_token %}
+      <p>{{ pin.pinDescription}} {{ pin.pinDirection}}  
+	  <input type="submit" name="pin{{ pin.pinID }}Status" id="{{ pin.pinID }}" value="{{ pin.pinStatus }}" onclick="gpio_submit();"  />
+	</form>
+	{% endfor %} 
+    </ul>
+  {% else %}
+    <p> none available </p>
+  {% endif %}
+  </div>
+  <iframe src="http://192.168.137.96:8081" scrolling="no" width="275" height="220" frameboarder="0">
+    <p>iframes are not supported by your browser.<p>
+  </iframe>
+  
+
+  
+{% endblock %}

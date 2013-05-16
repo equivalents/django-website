@@ -1,0 +1,11 @@
+{% block external %}
+  <script type="text/javascript" src="/media/gpio.js"></script>
+{% endblock %}
+  
+{% block content %} 
+  <form id="gpio_form" method="post"  >
+    {% csrf_token %}
+    <p>{{ pin1.pinDescription}} {{ pin1.pinDirection}}  
+	<input type="submit" name="pin{{ pin1.pinID }}Status" id="{{ pin1.pinID }}" value="{{ pin1.pinStatus }}"   />
+  </form>
+{% endblock %}
